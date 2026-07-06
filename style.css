@@ -279,30 +279,6 @@ a { color: inherit; }
   border-bottom: 1px solid var(--line);
 }
 
-/* ---------- Manifesto ---------- */
-
-.manifesto {
-  padding: clamp(4rem, 10vh, 7rem) clamp(1.25rem, 4vw, 3rem);
-  max-width: 74rem;
-  margin: 0 auto;
-}
-
-.manifesto-text {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: clamp(1.75rem, 4vw, 3rem);
-  line-height: 1.2;
-  max-width: 56rem;
-  color: var(--ink);
-}
-
-.manifesto-text mark {
-  background: var(--yellow);
-  color: var(--green-deep);
-  padding: 0 0.15em;
-  border-radius: 3px;
-}
-
 /* ---------- Sectors ---------- */
 
 .sector {
@@ -314,6 +290,8 @@ a { color: inherit; }
   margin: 0 auto;
   border-top: 1px solid var(--line);
 }
+
+.sector:first-of-type { border-top: none; }
 
 .sector-tag {
   color: var(--green);
@@ -367,30 +345,173 @@ a { color: inherit; }
   font-size: 0.95rem;
 }
 
-/* ---------- CTA ---------- */
+/* ---------- Service list & credentials ---------- */
 
-.cta-panel {
-  background: var(--green);
-  color: var(--paper);
-  text-align: center;
-  padding: clamp(4rem, 12vh, 7rem) clamp(1.25rem, 4vw, 3rem);
+.service-list {
+  list-style: none;
+  margin-top: 1.25rem;
 }
 
-.cta-panel h2 {
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: clamp(2.5rem, 6vw, 4.25rem);
-  line-height: 1;
-  text-transform: uppercase;
-  max-width: 46rem;
+.service-list li {
+  position: relative;
+  padding: 0.6rem 0 0.6rem 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.service-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 1.05rem;
+  width: 0.9rem;
+  height: 2px;
+  background: var(--yellow);
+}
+
+.service-list strong { color: var(--green); }
+
+.cred-chips {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.cred {
+  background: var(--green);
+  color: var(--yellow);
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  cursor: help;
+}
+
+/* ---------- Racing proof ---------- */
+
+.racing {
+  background: var(--green);
+  color: var(--paper);
+  padding: clamp(4rem, 10vh, 6.5rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.racing-inner {
+  max-width: 66rem;
   margin: 0 auto;
 }
 
-.cta-sub {
-  max-width: 36rem;
-  margin: 1.5rem auto 2.25rem;
-  color: rgba(250, 250, 247, 0.8);
-  font-size: 1.1rem;
+.racing h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  max-width: 60rem;
+}
+
+.racing-lead {
+  margin-top: 1.5rem;
+  font-size: 1.15rem;
+  color: rgba(250, 250, 247, 0.85);
+  max-width: 52rem;
+}
+
+.racing-lead mark {
+  background: var(--yellow);
+  color: var(--green-deep);
+  padding: 0 0.15em;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.pillar {
+  background: var(--green-deep);
+  border: 1px solid rgba(250, 250, 247, 0.12);
+  border-radius: 8px;
+  padding: 1.5rem 1.4rem;
+  color: rgba(250, 250, 247, 0.85);
+  font-size: 0.98rem;
+}
+
+.pillar-tag {
+  color: var(--yellow);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- Contact ---------- */
+
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(3.5rem, 9vh, 6rem) clamp(1.25rem, 4vw, 3rem);
+  max-width: 74rem;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.contact-sub {
+  margin-top: 1rem;
+  color: #3d453f;
+  max-width: 26rem;
+}
+
+.hidden-field { display: none; }
+
+.field { display: block; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field + .field, .field-row + .field { margin-top: 1rem; }
+.field-row .field { margin-top: 0; }
+
+.field-label {
+  display: block;
+  color: var(--green);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.65rem 0.8rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(242, 183, 5, 0.35);
+}
+
+.contact-form .button {
+  border: none;
+  cursor: pointer;
+  margin-top: 1.5rem;
 }
 
 .button {
@@ -426,6 +547,7 @@ a { color: inherit; }
 }
 
 .footer-note { color: var(--yellow); }
+.footer-link { color: rgba(250, 250, 247, 0.8); }
 
 /* ---------- Scroll reveal ---------- */
 
@@ -448,4 +570,7 @@ a { color: inherit; }
   .nav nav { flex-wrap: wrap; }
   .hero { grid-template-columns: 1fr; }
   .sector { grid-template-columns: 1fr; }
+  .pillars { grid-template-columns: 1fr; }
+  .contact { grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; }
 }
